@@ -1,19 +1,52 @@
 ![BrightCoders Logo](img/logo.png)
 
-# 🥷 Reto de Programación
+# La Rosa Dorada
 
-## Implementación de la Rosa Dorada
+## Table of contents
 
-> [Ver instrucciones antes de iniciar](./instructions.md)
+```
+└── 📁s3a2-la-rosa-dorada-team3_la_rosa_dorada
+    └── 📁GildedRose-Refactoring-Kata
+        └── 📁ruby
+            └── .buildpath
+            └── .gitignore
+            └── .loadpath
+            └── .project
+            └── .rspec
+            └── .gilded_rose_spec.rb
+            └── .gilded_rose_tests.rb
+            └── .gilded_rose.rb
+            └── README.md
+            └── .texttest_fixture.rb
+```
 
-This README would normally document whatever steps are necessary to get the application up and running.
+## Description
 
-Things you may want to cover:
+Refactoring code for "la rosa dorada" and updated products
 
-- Title or Project Name
-- Table of contents
-- Description. A brief description of what the project is about
-- How to Install and Run the Project.
-- How to Use the Project.
-- Credits
-- Badges
+## How to Install and Run the Project.
+
+In your terminal run:
+
+```bash
+git clone git@github.com:BrightCoders-Institute/s3a2-la-rosa-dorada-team3_la_rosa_dorada.git
+```
+
+## How to Use the Project.
+
+In your terminal run:
+
+```bash
+ruby texttest_fixture.rb
+```
+
+## Credits
+
+This project was developed by:
+Co-author-by: STR1ND3R <jmugres123@gmail.com>
+Co-author-by: angel23v <angelvazquezvirgen@gmail.com>
+Co-authored-by: gabynavarro2525 <Gabynavarro2525@gmail.com>
+
+## Badges
+
+![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)
