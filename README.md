@@ -34,17 +34,18 @@ git clone git@github.com:BrightCoders-Institute/s3a2-la-rosa-dorada-team3_la_ros
 
 ## How to Use the Project.
 
-In your terminal run:
+In your terminal run the bash script:
 
 ```bash
-ruby texttest_fixture.rb
+cd GildedRose-Refactoring-Kata/
+./start_texttest.sh
 ```
 
 ## Credits
 
 This project was developed by:
-Co-author-by: STR1ND3R <jmugres123@gmail.com>
-Co-author-by: angel23v <angelvazquezvirgen@gmail.com>
+Co-authored-by: STR1ND3R <jmugres123@gmail.com>
+Co-authored-by: angel23v <angelvazquezvirgen@gmail.com>
 Co-authored-by: gabynavarro2525 <Gabynavarro2525@gmail.com>
 
 ## Badges
