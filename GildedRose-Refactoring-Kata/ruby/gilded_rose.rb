@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# class Gilded
 class GildedRose
   def initialize(items)
     @items = items
@@ -5,33 +8,47 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      if item.name != 'Aged Brie' and item.name != 'Backstage passes to a TAFKAL80ETC concert' and item.name != 'Conjured Mana Cake'
-        item.quality = item.quality - 1 if item.quality > 0 && (item.name != 'Sulfuras, Hand of Ragnaros')
-      elsif item.quality < 50
-        item.quality = item.quality + 1
-        if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-          item.quality = item.quality + 1 if item.sell_in < 11 && (item.quality < 50)
-          item.quality = item.quality + 1 if item.sell_in < 6 && (item.quality < 50)
-        end
-      end
-      item.sell_in = item.sell_in - 1 if item.name != 'Sulfuras, Hand of Ragnaros' and item.name != 'Conjured Mana Cake'
-      if item.sell_in < 0
-        if item.name != 'Aged Brie'
-          if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-            item.quality = item.quality - 1 if item.quality > 0 && (item.name != 'Sulfuras, Hand of Ragnaros')
-          else
-            item.quality = item.quality - item.quality
-          end
-        elsif item.quality < 50
-          item.quality = item.quality + 1
-        end
-      end
-
-      if item.name == 'Conjured Mana Cake'
-        item.quality -= 1 if item.quality > 0
-        item.sell_in -= 1
+      case item.name
+      when 'Aged Brie'
+        update_aged_brie(item)
+      when 'Backstage passes to a TAFKAL80ETC concert'
+        update_backstage_passes(item)
+      when 'Conjured Mana Cake'
+        update_mana_cake(item)
+      when 'Sulfuras, Hand of Ragnaros'
+        next
+      else
+        update_regular_item(item)
       end
     end
+  end
+
+  def update_mana_cake(item)
+    item.quality -= 1 if item.sell_in.positive?
+    item.quality -= 2 if item.sell_in <= 0
+    item.sell_in -= 1
+    item.quality = 0 if item.quality.negative?
+  end
+
+  def update_aged_brie(item)
+    item.quality += 1 if item.quality < 50
+    item.sell_in -= 1
+    item.quality += 1 if item.sell_in.negative? && item.quality < 50
+  end
+
+  def update_backstage_passes(item)
+    item.quality += 2 if item.sell_in < 11 && item.sell_in > 5
+    item.quality += 3 if item.sell_in < 6
+    item.quality += 1 if item.quality < 50 && item.sell_in > 10
+    item.sell_in -= 1
+    item.quality = 0 if item.sell_in.negative?
+    item.quality = 50 if item.quality > 50
+  end
+
+  def update_regular_item(item)
+    item.quality -= 1 if item.quality.positive? && item.name != 'Sulfuras, Hand of Ragnaros'
+    item.sell_in -= 1
+    item.quality -= 1 if item.sell_in.negative? && item.quality.positive? && item.name != 'Aged Brie'
   end
 end
 
